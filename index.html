@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpportunityShield AI | Neural Forge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/analyzer.js" defer></script>
+    <script src="js/skillMatch.js" defer></script>
+    <script src="js/tracker.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="#" aria-label="OpportunityShield home">
+                <span class="brand-mark">◆</span>
+                <span><strong>OpportunityShield <em>AI</em></strong><small>Smart Analysis. Safer Choices.</small></span>
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-item active" data-view="home"><span>⌂</span>Home</button>
+                <button class="nav-item" data-view="analyze"><span>⌕</span>Analyse Opportunity</button>
+                <button class="nav-item" data-view="skills"><span>◎</span>Skill Match</button>
+                <button class="nav-item" data-view="tracker"><span>▤</span>Application Tracker</button>
+                <button class="nav-item" data-view="saved"><span>♧</span>Saved Opportunities</button>
+                <button class="nav-item" data-view="resources"><span>▣</span>Resources</button>
+            </nav>
+            <div class="sidebar-art">
+                <p>Better Opportunities<br><b>Brighter Future ↗</b></p>
+                <div class="mountain"><span></span><i></i><b></b></div>
+            </div>
+            <div class="team-card"><span class="team-icon">✳</span>
+                <div><small>Team</small><strong>Neural Forge</strong></div><span class="chevron">›</span>
+            </div>
+            <div class="member-card"><span class="avatar">N</span>
+                <div><strong>Neha</strong><small>Team Member</small></div><span class="chevron">›</span>
+            </div>
+            <div class="sidebar-foot">OpportunityShield AI <span>v1.0.0</span></div>
+        </aside>
+
+        <main class="main-area">
+            <header class="topbar">
+                <label class="searchbar"><span>⌕</span><input id="globalSearch" type="search"
+                        placeholder="Search internships, jobs, companies, skills..."><kbd>Ctrl + K</kbd></label>
+                <div class="top-team"><span class="top-team-icon">✳</span><span><strong>Neural
+                            Forge</strong><small>Team</small></span></div>
+                <button class="icon-button" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">☼</button>
+                <button class="notification icon-button" title="Notifications"
+                    aria-label="Notifications">♧<i></i></button>
+                <button class="profile-button"><span
+                        class="avatar small">N</span><span>Neha</span><span>⌄</span></button>
+            </header>
+
+            <section class="hero">
+                <div class="hero-copy">
+                    <span class="eyebrow">Welcome to OpportunityShield AI ✦</span>
+                    <h1>Find Opportunities.<br><span>Understand the Risks.</span><br>Build a Smarter Future.</h1>
+                    <p>Analyse internships & jobs, check for red flags,<br class="desktop-break"> match your skills and
+                        get personalised action plans.</p>
+                    <div class="hero-pills"><span>✦ AI-powered analysis</span><span>⬡ Risk alerts with
+                            reasons</span><span>◎ Skill match & gap analysis</span></div>
+                </div>
+                <div class="hero-illustration" aria-hidden="true">
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+                    <div class="float-tag safe">✓ &nbsp; Safe</div>
+                    <div class="float-tag risky">⚠ &nbsp; Risky?</div>
+                    <div class="float-tag match">◎ &nbsp; Good match</div>
+                    <div class="plant">♧</div>
+                    <div class="laptop">
+                        <div class="screen"><span>◈</span><i></i><i></i><i></i></div>
+                        <div class="keyboard"></div>
+                    </div>
+                    <div class="hero-note">Your future<br>matters ♡</div>
+                </div>
+            </section>
+
+            <section class="stats-grid">
+                <article class="stat-card lilac">
+                    <div class="stat-icon">▣</div><strong id="savedCount">0</strong><span>Saved
+                        Opportunities</span><small>↗ Keep your shortlist ready</small>
+                </article>
+                <article class="stat-card mint">
+                    <div class="stat-icon">▤</div><strong id="appliedCount">0</strong><span>Applications
+                        Tracked</span><small>↗ Track every next step</small>
+                </article>
+                <article class="stat-card pink">
+                    <div class="stat-icon">▦</div><strong id="deadlineCount">0</strong><span>Upcoming
+                        Deadlines</span><small>◷ Never miss a date</small>
+                </article>
+                <article class="stat-card peach">
+                    <div class="stat-icon">⚠</div><strong id="riskCount">0</strong><span>High Risk Alerts</span><small>!
+                        Review before you apply</small>
+                </article>
+            </section>
+
+            <section class="workspace-grid">
+                <div class="left-column">
+                    <section class="panel analyzer-panel" id="analyzerSection">
+                        <div class="panel-heading">
+                            <div><span class="heading-icon">✧</span>
+                                <h2>Analyse an Opportunity <em>AI</em></h2>
+                            </div><button class="text-button" id="howItWorks">ⓘ How it works?</button>
+                        </div>
+                        <p class="panel-intro">Paste a job or internship description to get insights, risk checks and
+                            skill analysis.</p>
+                        <textarea id="jobDescription"
+                            placeholder="Paste the job description, internship details or company information here..."></textarea>
+                        <div class="analysis-actions"><span>⚠ Detect red flags</span><span>▤ Extract key
+                                details</span><span>◎ Check skill match</span><span>✦ Get action plan</span></div>
+                        <div class="analyzer-footer"><span class="hint" id="analyzerHint">Your analysis will appear
+                                here.</span><button class="primary-button" id="analyzeButton">Analyse Now
+                                <span>→</span></button></div>
+                        <div class="result-panel hidden" id="analysisResult" aria-live="polite"></div>
+                    </section>
+                    <section class="panel skill-panel" id="skillSection">
+                        <div class="panel-heading">
+                            <div><span class="heading-icon">◎</span>
+                                <h2>Your Skill Match</h2>
+                            </div><button class="text-button" data-view-link="skills">View details →</button>
+                        </div>
+                        <div class="skill-content">
+                            <div class="match-ring" id="matchRing"><strong id="matchPercent">0%</strong><small>Overall
+                                    Match</small></div>
+                            <div class="skill-lists">
+                                <div>
+                                    <h3>Matched Skills</h3>
+                                    <ul id="matchedSkills">
+                                        <li>Run an analysis to see your matches.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3>Skills to Build</h3>
+                                    <ul id="missingSkills">
+                                        <li>Missing skills will appear here.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="middle-column">
+                    <section class="panel trust-panel">
+                        <div class="panel-heading">
+                            <div><span class="heading-icon">✧</span>
+                                <h2>Opportunity Signals</h2>
+                            </div>
+                        </div>
+                        <div class="trust-graphic">
+                            <div class="trust-meter">
+                                <div class="meter-inner"><strong id="trustScore">—</strong><small>/ 100</small></div>
+                            </div><span id="riskLabel" class="risk-pill neutral">Awaiting analysis</span>
+                        </div>
+                        <p class="trust-note" id="trustNote">Paste an opportunity description to see explainable warning
+                            signals.</p>
+                        <button class="outline-button" id="viewAnalysis">View full analysis →</button>
+                    </section>
+                    <section class="panel quick-stats">
+                        <div class="panel-heading">
+                            <div><span class="heading-icon">✦</span>
+                                <h2>Quick Stats</h2>
+                            </div>
+                        </div>
+                        <div class="mini-stat-grid">
+                            <div><strong id="miniSaved">0</strong><span>Saved</span></div>
+                            <div><strong id="miniApplied">0</strong><span>Applied</span></div>
+                            <div><strong id="miniInterview">0</strong><span>Interviews</span></div>
+                            <div><strong id="miniOffer">0</strong><span>Offers</span></div>
+                        </div>
+                    </section>
+                </div>
+
+                <aside class="right-column">
+                    <section class="panel quick-actions">
+                        <div class="panel-heading">
+                            <div><span class="heading-icon">✧</span>
+                                <h2>Quick Actions</h2>
+                            </div>
+                        </div>
+                        <button class="action-row" data-scroll="analyzerSection"><span
+                                class="action-icon purple">⌕</span><span><strong>Analyse a Job
+                                    Description</strong><small>Paste details and get
+                                    insights</small></span><b>›</b></button>
+                        <button class="action-row" data-scroll="skillSection"><span
+                                class="action-icon teal">◎</span><span><strong>Check Skill Match</strong><small>See how
+                                    well you fit</small></span><b>›</b></button>
+                        <button class="action-row" data-view="tracker"><span
+                                class="action-icon blue">▤</span><span><strong>Track Applications</strong><small>Manage
+                                    your progress</small></span><b>›</b></button>
+                        <button class="action-row" data-view="resources"><span
+                                class="action-icon pink">▣</span><span><strong>Explore Resources</strong><small>Learn
+                                    and grow</small></span><b>›</b></button>
+                    </section>
+                    <section class="panel activity-panel">
+                        <div class="panel-heading">
+                            <div><span class="heading-icon">◷</span>
+                                <h2>Recent Activity</h2>
+                            </div>
+                        </div>
+                        <div id="activityList" class="activity-list">
+                            <div class="empty-state">Your activity will appear here as you use the app.</div>
+                        </div>
+                    </section>
+                </aside>
+            </section>
+
+            <section class="bottom-banner"><span class="bulb">✦</span>
+                <div><strong>Not sure which opportunity is right for you?</strong>
+                    <p>Get personalised recommendations based on your skills, interests and goals.</p>
+                </div><button class="primary-button" id="suggestButton">Get Suggestions <span>→</span></button>
+            </section>
+
+            <section class="panel tracker-panel hidden" id="trackerView">
+                <div class="panel-heading">
+                    <div><span class="heading-icon">▤</span>
+                        <h2>Application Tracker</h2>
+                    </div><button class="text-button" id="backHome">← Back to dashboard</button>
+                </div>
+                <p class="panel-intro">Save an opportunity after analysing it, then track its status here.</p>
+                <form id="saveOpportunityForm" class="save-form"><label>Company or opportunity name<input
+                            id="companyName" placeholder="e.g. Frontend Developer Intern"
+                            required></label><label>Application status<select id="applicationStatus">
+                            <option>Saved</option>
+                            <option>Applied</option>
+                            <option>Interview</option>
+                            <option>Offer</option>
+                            <option>Rejected</option>
+                        </select></label><label>Deadline (optional)<input id="deadlineDate" type="date"></label><button
+                        class="primary-button" type="submit">Add Opportunity +</button></form>
+                <div id="opportunityList" class="opportunity-list"></div>
+            </section>
+
+            <section class="panel resources-panel hidden" id="resourcesView">
+                <div class="panel-heading">
+                    <div><span class="heading-icon">▣</span>
+                        <h2>Student Safety Resources</h2>
+                    </div><button class="text-button" id="backHomeResources">← Back to dashboard</button>
+                </div>
+                <div class="resource-grid">
+                    <article><span>01</span>
+                        <h3>Never pay to get hired</h3>
+                        <p>Be cautious of requests for registration, training or security fees as a condition of
+                            employment.</p>
+                    </article>
+                    <article><span>02</span>
+                        <h3>Verify the recruiter</h3>
+                        <p>Check the company’s official website and contact details independently before sharing
+                            documents.</p>
+                    </article>
+                    <article><span>03</span>
+                        <h3>Read the offer carefully</h3>
+                        <p>Look for a clear role, compensation terms, responsibilities and a verifiable point of
+                            contact.</p>
+                    </article>
+                </div>
+            </section>
+
+            <footer><span>OpportunityShield AI · Built by <strong>Neural Forge</strong></span><span>Make informed
+                    choices. Your future matters.</span></footer>
+        </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+
+</html>
